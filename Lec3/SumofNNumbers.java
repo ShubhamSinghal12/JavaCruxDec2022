@@ -12,8 +12,8 @@ public class SumofNNumbers {
 			sum += n;
 			n--;
 		}
-		System.out.println(sum);
 		
+		System.out.println(sum);
 		
 	}
 

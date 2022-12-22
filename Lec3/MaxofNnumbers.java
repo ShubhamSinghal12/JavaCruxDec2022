@@ -17,6 +17,7 @@ public class MaxofNnumbers {
 			{
 				max = x;
 			}
+			System.out.println(max);
 			i++;
 		}
 		System.out.println(max);

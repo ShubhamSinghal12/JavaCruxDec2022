@@ -8,7 +8,7 @@ public class DecimalToBinary {
 		int n = 49;
 		int ans = 0;
 		int p = 1;
-		int base = 8;
+		int base = 2;
 		
 		while(n != 0)
 		{

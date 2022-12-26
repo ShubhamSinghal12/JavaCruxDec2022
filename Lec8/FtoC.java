@@ -17,7 +17,7 @@ public class FtoC {
 //			int c = (int)((5.0/9)*(f-32));
 			int c = 5*(f-32)/9;
 			System.out.println(f+" : "+c);
-			f += 20;
+			f += step;
 		}
 
 	}

@@ -7,7 +7,7 @@ public class ArraysDemo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int n = 5;
-		int[] arr = {1,2,3,4,5};
+		int[] arr = takeInput();
 		int[] brr = {5,4,3,2,1};
 //		brr = arr;
 		
@@ -96,10 +96,7 @@ public class ArraysDemo {
 		}
 		sc.close();
 		return arr;
-		
 	}
-
-	
 	
 	
 }

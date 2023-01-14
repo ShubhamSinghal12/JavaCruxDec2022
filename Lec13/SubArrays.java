@@ -84,4 +84,7 @@ public class SubArrays {
 		}
 		return maxS;
 	}
+	
+	
+	
 }

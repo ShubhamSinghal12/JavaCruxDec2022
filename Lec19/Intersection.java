@@ -35,6 +35,7 @@ public class Intersection {
 		}
 		System.out.println(ans);
 		
+		
 
 	}
 	

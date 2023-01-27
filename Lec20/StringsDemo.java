@@ -26,7 +26,6 @@ public class StringsDemo {
 		st = st.replace('l', 'r');
 		System.out.println(st);
 		
-
 	}
 
 }

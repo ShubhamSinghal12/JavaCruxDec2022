@@ -5,6 +5,10 @@ public class Test {
 	public static void main(String[] args) {
 		
 //		System.out.println(Math.sqrt(-2));
+		String s = "12";
+		int i = 12;
+		char ch = 12 - 1 + 'A';
+		System.out.println(ch);
 		}
 
 	public static void takeinput(int[] arr)

@@ -22,5 +22,5 @@ public class GenerateParanthesis {
 			gn(op,clo-1,ans+")");
 		}
 	}
-
+	
 }

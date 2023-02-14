@@ -4,16 +4,17 @@ public class MazePath {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int n = 7;
-		int m = 3;
+		int n = 51;
+		int m = 9;
 		System.out.println(mazePath(0, 0, m-1, n-1, ""));
+		
 	}
 	
 	public static int mazePath(int i,int j,int m,int n,String ans)
 	{
 		if(i == m && j == n)
 		{
-			System.out.println(ans);
+//			System.out.println(ans);
 			return 1;
 		}
 //		else if( i > m || j > n)

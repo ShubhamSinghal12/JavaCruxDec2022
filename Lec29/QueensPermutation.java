@@ -74,15 +74,4 @@ public class QueensPermutation {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

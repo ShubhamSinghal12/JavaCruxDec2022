@@ -1,31 +1,37 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Test {
 	static Scanner sc =  new Scanner(System.in);
 	public static void main(String[] args) {
 		
-//		System.out.println(Math.sqrt(-2));
-		String s = "12";
-		int i = 12;
-		char ch = 12 - 1 + 'A';
-		System.out.println(ch);
+		int[] arr = {1,3,5,4,2};
+		nextPermut(arr);
+		System.out.println(Arrays.toString(arr));
 		}
 
-	public static void takeinput(int[] arr)
-	{
-		for(int i=0;i<arr.length;i++)
+	public static void nextPermut(int[] arr){
+        
+		int i = arr.length-2;
+		for(;i>=0;i--)
 		{
-			arr[i]=sc.nextInt();
-		}
+            if(arr[i]<arr[i+1])
+            {
+                break;
+            }
+        }
+		
+		for(int j=arr.length-1;j>=0;j--){
+            if(arr[j]>arr[i]){
+                swap(arr,i,j);
+                break;
+            }
+        }
+		
+        reverse(arr,i+1,arr.length-1);
+    }
+
 	
-	}
-	public static void display(int[] arr)
-	{
-		for(int i=0;i<arr.length;i++)
-		{
-			System.out.print(arr[i]+" ");
-		}
-	}
 	public static void swap(int [] arr,int si,int ei)
 	{
            
@@ -33,11 +39,8 @@ public class Test {
 	     arr[si]=arr[ei];
 	     arr[ei]=temp;
 	}
-	public static void  reverse(int [] arr)
+	public static void  reverse(int [] arr,int si,int ei)
 	{
-		int si=0;
-		int n=arr.length-1;
-		int ei=n;
 		while(ei>si)
 		{
 			swap(arr,si,ei);

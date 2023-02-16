@@ -7,7 +7,7 @@ public class CoinChange {
 		int[] coins = {1,2,5};
 //		ccc(coins, 5, "",0);
 		cccr(coins, 0, 5, "");
-
+		
 	}
 	
 	public static void ccp(int[] coins,int target,String ans)
@@ -68,13 +68,6 @@ public class CoinChange {
 			cccr(coins, i+1, target, ans);
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

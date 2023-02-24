@@ -28,6 +28,7 @@ public class Insertion {
 		}
 		arr[i+1] = temp;
 	}
+	
 	public static void insertionSort(int[] arr)
 	{
 		for(int i = 1; i < arr.length; i++)
@@ -35,5 +36,6 @@ public class Insertion {
 			insert(arr, i);
 		}
 	}
+	
 
 }

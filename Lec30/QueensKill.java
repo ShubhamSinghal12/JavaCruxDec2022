@@ -9,9 +9,9 @@ public class QueensKill {
 //		qp(board, 2, "", 0);
 //		qc(board, 2,"" , 0, 0, 0);
 //		qcBr2(board, 0, 0, 2, 0, "");
-		qcKill(board, 4, "", 0, -1, 0);
+//		qcKill(board, 4, "", 0, -1, 0);
 //		qcBrKill(board, 0, 0, 4, 0, "");
-		
+		nQueenKill2(board, 0, 0, 4, "");
 		
 	}
 	
@@ -219,6 +219,29 @@ public class QueensKill {
 		}
 	}
 	
-	
+public static void nQueenKill2(boolean[][]board, int j, int qpsf, int tq, String ans) {
+		
+		if(qpsf == tq) {
+			System.out.println(ans);
+			return;
+		}
+		if(j >= board[0].length) {
+			return;
+		}
+		else {
+			
+			//Place only if possible
+			if(isItPossible(board, qpsf, j)) {
+				board[qpsf][j] = true;
+				nQueenKill2(board, 0, qpsf+1, tq, ans+"q"+"b"+qpsf+j+" ");
+				board[qpsf][j] = false;
+			}
+			
+			//Not place
+			nQueenKill2(board, j+1, qpsf, tq, ans);
+			
+		}
+	}
+
 	
 }

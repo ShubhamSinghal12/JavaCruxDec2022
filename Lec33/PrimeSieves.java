@@ -5,7 +5,7 @@ public class PrimeSieves {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		primeS(30);
-
+		
 	}
 	
 	public static void primeS(int n) {

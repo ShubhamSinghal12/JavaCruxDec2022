@@ -7,8 +7,9 @@ public class Subsequence {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(Asciiss("ab"));
-		Asciiss("ab","");
+//		System.out.println(ss("abcd"));
+//		Asciiss("ab","");
+		ss("abcd","");
 		
 	}
 	
@@ -79,8 +80,8 @@ public class Subsequence {
 		}
 		else
 		{
-			ss(ques.substring(1),ans+ques.charAt(0));
 			ss(ques.substring(1),ans);
+			ss(ques.substring(1),ans+ques.charAt(0));
 //			ss(ques.substring(1),ans+ques.charAt(0));
 		}
 	}

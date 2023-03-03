@@ -2,9 +2,9 @@ package Lec37;
 
 public class MyQueue {
 	
-	int[] arr;
-	int front;
-	int size;
+	private int[] arr;
+	private int front;
+	private int size;
 	
 	MyQueue(int n)
 	{

@@ -2,18 +2,18 @@ package Lec37;
 
 public class MyQueue {
 	
-	private int[] arr;
-	private int front;
-	private int size;
+	protected int[] arr;
+	protected int front;
+	protected int size;
 	
-	MyQueue(int n)
+	public MyQueue(int n)
 	{
 		this.arr = new int[n];
 		this.front = 0;
 		this.size = 0;
 	}
 	
-	MyQueue()
+	public MyQueue()
 	{
 		this(5);
 	}

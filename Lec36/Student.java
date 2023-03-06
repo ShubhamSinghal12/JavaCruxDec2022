@@ -15,10 +15,16 @@ public class Student {
 		setName(name);
 		try {
 			setAge(age);
+			return;
 		}
 		catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
+		}
+		
+		finally
+		{
+			System.out.println("In finally block");
 		}
 		
 	}

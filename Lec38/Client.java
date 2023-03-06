@@ -21,8 +21,10 @@ public class Client {
 //		System.out.println(p.d);
 //		p.saysHi();
 		
-		Parent p = new Parent();
-		System.out.println(p);
+//		Parent p = new Parent();
+//		System.out.println(p);
+		
+		
 		
 		
 	}

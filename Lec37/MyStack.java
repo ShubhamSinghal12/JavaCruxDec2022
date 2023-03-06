@@ -2,16 +2,16 @@ package Lec37;
 
 public class MyStack {
 
-	private int[] arr;
-	private int top;
+	protected int[] arr;
+	protected int top;
 	
-	MyStack(int n)
+	public MyStack(int n)
 	{
 		this.arr = new int[n];
 		this.top = 0;
 	}
 	
-	MyStack()
+	public MyStack()
 	{
 		this(5);
 	}

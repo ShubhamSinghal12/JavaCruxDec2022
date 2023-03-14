@@ -223,6 +223,53 @@ public class MyLinkedList {
 		}
 	}
 	
+	public void kreverse(int k)
+	{
+		this.head = kr(this.head,k);
+	}
+	
+	private Node kr(Node h,int k)
+	{
+		if(h == null)
+		{
+			return null;
+		}
+		else
+		{
+			Node temp = h;
+			for(int i = 1; i <= k && temp != null; i++)
+			{
+				temp = temp.next;
+			}
+			Node prev = kr(temp, k);
+			Node cur = h;
+			while(cur != temp)
+			{
+				Node ahead = cur.next;
+				cur.next = prev;
+				
+				prev = cur;
+				cur = ahead;
+			}
+			return prev;
+		}
+	}
+	
+	private Node midNode(Node head)
+	{
+		Node slow = head;
+		Node fast = head;
+		while(fast.next != null && fast.next.next!= null)
+		{
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+		return slow;
+	}
+	
+	
+	
+	
 	
 	
 	

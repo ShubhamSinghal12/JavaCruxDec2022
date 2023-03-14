@@ -1,0 +1,55 @@
+public void reorderList(ListNode head) {
+        
+        ListNode mid = midNode(head);
+        ListNode head2 = mid.next;
+        mid.next = null;
+        
+        head2 = reverse(head2);
+        ListNode h = head;
+        head = head.next;
+        while(head != null || head2 != null)
+        {
+            if(head2 != null)
+            {
+                h.next = head2;
+                h = h.next;
+                head2 = head2.next;
+            }
+            if(head != null)
+            {
+                h.next = head;
+                h = h.next;
+                head = head.next;
+            }
+        }
+        
+        
+    }
+    private ListNode midNode(ListNode head)
+	{
+		ListNode slow = head;
+		ListNode fast = head;
+		while(fast.next != null && fast.next.next!= null)
+		{
+			fast = fast.next.next;
+			slow = slow.next;
+		}
+		return slow;
+	}
+    
+    private ListNode reverse(ListNode head)
+    {
+        ListNode cur = head;
+		ListNode prev = null;
+		
+		while(cur != null)
+		{
+			ListNode ahead = cur.next;
+			cur.next = prev;
+			
+			prev = cur;
+			cur = ahead;
+		}
+		return prev;
+    }
+    

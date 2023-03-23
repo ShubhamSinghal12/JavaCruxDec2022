@@ -287,6 +287,27 @@ public class BinaryTree {
 		System.out.println();
 	}
 	
+	public void mirror()
+	{
+		mirror(root);
+	}
+	
+	private void mirror(Node r)
+	{
+		if(r == null)
+		{
+			return;
+		}
+		else
+		{
+			Node t = r.left;
+			r.left = r.right;
+			r.right = t;
+			
+			mirror(r.left);
+			mirror(r.right);
+		}
+	}
 	
 
 }

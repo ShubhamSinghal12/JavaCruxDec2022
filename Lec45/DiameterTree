@@ -1,0 +1,75 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    
+//     public int ht(TreeNode r)
+//     {
+//         if(r == null)
+//         {
+//             return -1;
+//         }
+//         else
+//         {
+//             return Math.max(ht(r.left),ht(r.right))+1;
+//         }
+//     }
+//     public int dia(TreeNode r)
+//     {
+//         if(r == null)
+//         {
+//             return 0;
+//         }
+//         else
+//         {
+//             int rootDia = ht(r.left)+ht(r.right)+2;
+//             int leftDia = dia(r.left);
+//             int rightDia = dia(r.right);
+            
+//             return Math.max(rootDia,Math.max(leftDia,rightDia));
+//         }
+//     }
+    
+    
+    class Pair{
+        int ht = -1;
+        int dia = 0;
+    }
+    public Pair dia2(TreeNode r)
+    {
+        if(r == null)
+        {
+            return new Pair();
+        }
+        else
+        {
+            Pair np = new Pair();
+            Pair lp = dia2(r.left);
+            Pair rp = dia2(r.right);
+            
+            np.dia = Math.max(lp.ht+rp.ht+2,Math.max(lp.dia,rp.dia));
+            np.ht = Math.max(lp.ht,rp.ht)+1;
+            
+            return np;
+        }
+    }
+    
+    public int diameterOfBinaryTree(TreeNode root) {
+        
+        return dia2(root).dia;
+    }
+    
+    
+}

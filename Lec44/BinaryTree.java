@@ -309,5 +309,28 @@ public class BinaryTree {
 		}
 	}
 	
+	public void createTreeUsingLevelOrder()
+	{
+		Queue<Node> qt = new LinkedList<>();
+		this.root = new Node(sc.nextInt());
+		qt.add(this.root);
+		while(!qt.isEmpty())
+		{
+			Node r = qt.remove();
+			int left = sc.nextInt();
+			int right = sc.nextInt();
+			if(left != -1)
+			{
+				r.left = new Node(left);
+				qt.add(r.left);
+			}
+			if(right != -1)
+			{
+				r.right = new Node(right);
+				qt.add(r.right);
+			}
+		}
+	}
+	
 
 }

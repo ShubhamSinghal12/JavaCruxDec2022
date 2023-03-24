@@ -1,0 +1,58 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    
+    public int ht(TreeNode r)
+    {
+        if(r == null)
+            return 0;
+        else
+        {
+            int lh = ht(r.left);
+            int rh = ht(r.right);
+
+            if(lh == -1 || rh == -1 ||Math.abs(lh-rh)>1)
+                return -1;
+            else
+                return Math.max(lh,rh)+1;
+        }
+    }
+
+    // class Pair{
+    //     boolean isbal = true;
+    //     int ht = -1;
+    // }
+    // public Pair diameter(TreeNode r)
+    // {
+    //     if(r==null)
+    //     {
+    //         return new Pair();
+    //     }
+    //     else
+    //     {
+    //         Pair ldia = diameter(r.left);
+    //         Pair rdia = diameter(r.right);
+    //         Pair cur = new Pair();
+    //         cur.isbal = ldia.isbal && rdia.isbal && Math.abs(ldia.ht-rdia.ht) <= 1;
+    //         cur.ht = Math.max(ldia.ht,rdia.ht)+1;
+    //         return cur;
+    //     }
+    // }
+    
+    public boolean isBalanced(TreeNode root) {
+        return ht(root) != -1;
+    }
+}

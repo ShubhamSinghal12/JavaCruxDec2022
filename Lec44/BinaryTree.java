@@ -280,6 +280,8 @@ public class BinaryTree {
 			
 			if(counter == 0)
 			{
+				//r for right view
+				//qt.peek() for leftview
 				System.out.println();
 				counter = qt.size();
 			}

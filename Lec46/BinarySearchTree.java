@@ -166,6 +166,74 @@ public class BinarySearchTree {
 		}
 	}
 	
+	public void add2(int ele)
+	{
+		this.root = add2(this.root,ele);
+	}
+	private Node add2(Node r,int ele)
+	{
+		if(r == null)
+		{
+			return new Node(ele);
+		}
+		else
+		{
+			if(r.data > ele)
+			{
+				r.left = add2(r.left,ele);
+			}
+			else
+			{
+				r.right = add2(r.right,ele);
+			}
+			return r;
+		}
+		
+	}
+	
+	
+	public void delete(int ele)
+	{
+		this.root = delete(root, ele);
+	}
+	
+	private Node delete(Node r,int ele)
+	{
+		if(r == null)
+		{
+			return null;
+		}
+		else if(r.data > ele)
+		{
+			r.left = delete(r.left, ele);
+		}
+		else if(r.data < ele)
+		{
+			r.right = delete(r.right, ele);
+		}
+		else
+		{
+			if(r.left == null && r.right == null)
+			{
+				return null;
+			}
+			else if(r.right == null)
+			{
+				return r.left;
+			}
+			else if(r.left == null)
+			{
+				return r.right;
+			}
+			else
+			{
+				int d = max(r.left);
+				r.data = d;
+				r.left = delete(r.left, d);
+			}
+		}
+		return r;
+	}
 	
 	
 	

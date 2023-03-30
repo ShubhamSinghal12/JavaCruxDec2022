@@ -5,9 +5,13 @@ public class Test {
 	static Scanner sc =  new Scanner(System.in);
 	public static void main(String[] args) {
 		
-		int[] arr = {1,3,5,4,2};
-		nextPermut(arr);
-		System.out.println(Arrays.toString(arr));
+//		int m = sc.nextInt();
+//		int n = sc.nextInt();
+		int[][] arr = new int[4][4];
+		Working w = new Working();
+		
+		w.takeInput(arr);
+		w.prints(arr);
 		}
 
 	public static void nextPermut(int[] arr){

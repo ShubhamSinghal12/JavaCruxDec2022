@@ -1,0 +1,84 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public int maxSumBST(TreeNode root) {
+       return (int)isBst(root).maxSum;
+    }
+    
+    class Pair {
+        long max = Integer.MIN_VALUE - 1l;
+        long min = Integer.MAX_VALUE + 1l;
+        boolean isbst = true;
+        
+        long sum = 0;
+        long maxSum = 0;
+        TreeNode r = null;
+        
+    }
+    public Pair isBst(TreeNode root){
+        if(root == null)
+        {
+            return new Pair();
+        }
+        else
+        {
+            Pair leftp = isBst(root.left);
+            Pair rightp = isBst(root.right);
+            Pair curp = new Pair();
+            
+            curp.max = Math.max(root.val,Math.max(leftp.max,rightp.max));
+            curp.min = Math.min(root.val,Math.min(leftp.min,rightp.min));
+            curp.isbst = leftp.isbst && rightp.isbst && root.val > leftp.max && root.val < rightp.min;
+            
+            curp.sum = leftp.sum + rightp.sum + root.val;
+            
+            if(curp.isbst)
+            {
+                curp.maxSum = curp.sum;
+                curp.r = root;
+            }
+            if(curp.maxSum < leftp.maxSum)
+            {
+                curp.maxSum = leftp.maxSum;
+                curp.r = leftp.r;
+            }
+            if(curp.maxSum < rightp.maxSum)
+            {
+                curp.maxSum = rightp.maxSum;
+                curp.r = rightp.r;
+            }
+            
+            return curp;
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}

@@ -1,5 +1,6 @@
 package Lec48;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -54,6 +55,7 @@ public class Client {
 			System.out.println(pq.remove());
 		}
 		
+		Collections.reverseOrder();
 	}
 
 }

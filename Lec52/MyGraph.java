@@ -1,7 +1,11 @@
 package Lec52;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class MyGraph {
 	
@@ -128,5 +132,208 @@ public class MyGraph {
 		visited.remove(u);
 	}
 	
-
+	public boolean hasPathBFS(int u,int v)
+	{
+		Queue<Integer> qt = new LinkedList<>();
+		HashSet<Integer> visited = new HashSet<>();
+		qt.add(u);
+		while(!qt.isEmpty())
+		{
+			int n = qt.remove();
+			if(n == v)
+				return true;
+			
+			if(visited.contains(n))
+			{
+				continue;
+			}
+			visited.add(n);
+			for(int nbbrs:map.get(n).keySet())
+			{
+				if(!visited.contains(nbbrs))
+				{
+					qt.add(nbbrs);
+				}
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	public void BFST()
+	{
+		Queue<Integer> qt = new LinkedList<>();
+		HashSet<Integer> visited = new HashSet<>();
+		for(int u: map.keySet())
+		{
+			if(!visited.contains(u))
+			{
+				qt.add(u);
+			}
+			while(!qt.isEmpty())
+			{
+				int n = qt.remove();
+				
+				if(visited.contains(n))
+				{
+					continue;
+				}
+				System.out.println(n);
+				visited.add(n);
+				for(int nbbrs:map.get(n).keySet())
+				{
+					if(!visited.contains(nbbrs))
+					{
+						qt.add(nbbrs);
+					}
+				}
+			}
+		}
+		
+	}
+	
+	
+	public void DFST()
+	{
+		Stack<Integer> qt = new Stack<>();
+		HashSet<Integer> visited = new HashSet<>();
+		for(int u: map.keySet())
+		{
+			if(!visited.contains(u))
+			{
+				qt.push(u);
+			}
+			while(!qt.isEmpty())
+			{
+				int n = qt.pop();
+				
+				if(visited.contains(n))
+				{
+					continue;
+				}
+				System.out.println(n);
+				visited.add(n);
+				for(int nbbrs:map.get(n).keySet())
+				{
+					if(!visited.contains(nbbrs))
+					{
+						qt.push(nbbrs);
+					}
+				}
+			}
+		}
+		
+	}
+	
+	
+	public boolean isCycle()
+	{
+		Queue<Integer> qt = new LinkedList<>();
+		HashSet<Integer> visited = new HashSet<>();
+		for(int u: map.keySet())
+		{
+			if(!visited.contains(u))
+			{
+				qt.add(u);
+			}
+			while(!qt.isEmpty())
+			{
+				int n = qt.remove();
+				
+				if(visited.contains(n))
+				{
+					return true;
+				}
+//				System.out.println(n);
+				visited.add(n);
+				for(int nbbrs:map.get(n).keySet())
+				{
+					if(!visited.contains(nbbrs))
+					{
+						qt.add(nbbrs);
+					}
+				}
+			}
+		}
+		return false;
+	}
+	
+	
+	public int noOfConnectedComponents()
+	{
+		Queue<Integer> qt = new LinkedList<>();
+		HashSet<Integer> visited = new HashSet<>();
+		int count = 0;
+		for(int u: map.keySet())
+		{
+			if(!visited.contains(u))
+			{
+				qt.add(u);
+				count++;
+			}
+			while(!qt.isEmpty())
+			{
+				int n = qt.remove();
+				
+				if(visited.contains(n))
+				{
+					continue;
+				}
+//				System.out.println(n);
+				visited.add(n);
+				for(int nbbrs:map.get(n).keySet())
+				{
+					if(!visited.contains(nbbrs))
+					{
+						qt.add(nbbrs);
+					}
+				}
+			}
+		}
+		return count;
+		
+	}
+	
+	public void printAllComponents()
+	{
+		Queue<Integer> qt = new LinkedList<>();
+		HashSet<Integer> visited = new HashSet<>();
+		int count = 0;
+		ArrayList<Integer> ans;
+		for(int u: map.keySet())
+		{
+			if(!visited.contains(u))
+			{
+				ans = new ArrayList<>();
+				qt.add(u);
+				count++;
+				while(!qt.isEmpty())
+				{
+					int n = qt.remove();
+					
+					if(visited.contains(n))
+					{
+						continue;
+					}
+	//				System.out.println(n);
+					visited.add(n);
+					ans.add(n);
+					for(int nbbrs:map.get(n).keySet())
+					{
+						if(!visited.contains(nbbrs))
+						{
+							qt.add(nbbrs);
+						}
+					}
+				}
+				System.out.println(ans);
+			}
+		}
+		
+	}
+	
+	
+	
+	
 }

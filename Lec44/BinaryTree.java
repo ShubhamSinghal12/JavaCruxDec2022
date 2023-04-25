@@ -1,5 +1,8 @@
 package Lec44;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -333,6 +336,86 @@ public class BinaryTree {
 			}
 		}
 	}
+	
+	public void verticalOrder()
+	{
+		HashMap<Integer,ArrayList<Integer>> map = new HashMap<>();
+		verticalOrder(root, 0, map);
+		for(int i:map.keySet())
+		{
+			System.out.println(i+" : "+map.get(i));
+		}
+	}
+	private void verticalOrder(Node r,int vlvl,HashMap<Integer,ArrayList<Integer>> map)
+	{
+		if(r == null)
+		{
+			return;
+		}
+		else
+		{
+			if(map.containsKey(vlvl))
+			{
+				map.get(vlvl).add(r.data);
+			}
+			else
+			{
+				map.put(vlvl, new ArrayList<Integer>(Arrays.asList(r.data)));
+			}
+			
+			verticalOrder(r.left, vlvl-1, map);
+			verticalOrder(r.right, vlvl+1, map);
+		}
+	}
+	
+	
+	private class TopViewPair{
+		Node data;
+		int hlvl;
+		
+		public TopViewPair(Node data,int hlvl) {
+			// TODO Auto-generated constructor stub
+			this.data = data;
+			this.hlvl = hlvl;
+		}
+	}
+	
+	public void topView()
+	{
+		HashMap<Integer,TopViewPair> map = new HashMap<>();
+		topView(root, 0, 0, map);
+		for(int i:map.keySet())
+		{
+			System.out.println(i+" : "+map.get(i).data.data);
+		}
+	}
+	private void topView(Node r,int vlvl,int hlvl,HashMap<Integer,TopViewPair> map)
+	{
+		if(r == null)
+		{
+			return;
+		}
+		else
+		{
+			if(map.containsKey(vlvl))
+			{
+				if(map.get(vlvl).hlvl > hlvl)
+				{
+					map.put(vlvl, new TopViewPair(r, hlvl));
+				}	
+			}
+			else
+			{
+				map.put(vlvl, new TopViewPair(r, hlvl));
+			}
+			
+			topView(r.left, vlvl-1, hlvl+1, map);
+			topView(r.right, vlvl+1, hlvl+1, map);
+		}
+	}
+	
+	
+	
 	
 
 }

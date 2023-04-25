@@ -7,15 +7,15 @@ public class Client {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		MyGraph gp = new MyGraph(7);
-		gp.addEdge(1, 2, 10);
-//		gp.addEdge(1, 4, 40);
-//		gp.addEdge(3, 2, 20);
-		gp.addEdge(3, 4, 30);
-//		gp.addEdge(4, 5, 80);
-		gp.addEdge(5, 6, 90);
-		gp.addEdge(6, 7, 7);
-		gp.addEdge(5, 7, 15);
+//		MyGraph gp = new MyGraph(7);
+//		gp.addEdge(1, 2, 20);
+//		gp.addEdge(1, 4, 60);
+//		gp.addEdge(3, 2, 30);
+//		gp.addEdge(3, 4, 20);
+//		gp.addEdge(4, 5, 50);
+//		gp.addEdge(5, 6, 80);
+//		gp.addEdge(6, 7, 40);
+//		gp.addEdge(5, 7, 70);
 		
 //		gp.display();
 //		gp.removeEdge(4,5);
@@ -28,7 +28,23 @@ public class Client {
 //		gp.DFST();
 //		System.out.println(gp.isCycle());
 //		System.out.println(gp.noOfConnectedComponents());
-		gp.printAllComponents();
+//		gp.printAllComponents();
+//		gp.krushkals();
+//		gp.prims();
+//		gp.dijakstra();
+		
+		
+		
+		MyGraph gp = new MyGraph(5);
+		gp.addEdge(1, 2, 8);
+		gp.addEdge(1, 4, 3);
+		gp.addEdge(1, 3, 4);
+		gp.addEdge(3, 4, -3);
+		gp.addEdge(4, 5, 4);
+		gp.addEdge(5, 2, 2);
+		gp.addEdge(2, 5, -10);
+		
+		gp.bellmonFord(1);
 
 	}
 

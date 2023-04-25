@@ -6,8 +6,8 @@ public class Client {
 		// TODO Auto-generated method stub
 		//10 true 20 true 40 false false true 50 false false true 30 false true 60 false false
 		BinaryTree bt = new BinaryTree();
-//		bt.createTree2();
-		bt.createTreeUsingLevelOrder();
+		bt.createTree2();
+//		bt.createTreeUsingLevelOrder();
 		bt.display();
 //		bt.mirror();
 //		System.out.println();
@@ -34,6 +34,9 @@ public class Client {
 //		System.out.println();
 //		System.out.println(); 
 		
+		
+//		bt.verticalOrder();
+		bt.topView();
 
 	}
 

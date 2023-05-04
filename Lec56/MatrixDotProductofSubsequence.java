@@ -18,5 +18,38 @@ public class MatrixDotProductofSubsequence {
 
         return Math.max(s,Math.max(f,l));
     }
+	
+	public static int ansBU(int[]arr1, int[]arr2)
+	{
+		int[] cur = new int[arr2.length+1];
+		int[] prev = new int[arr2.length+1];
+
+        cur[arr2.length] = Integer.MIN_VALUE;
+
+		for(int i = 0; i <= arr2.length; i++)
+		{
+			prev[i] = Integer.MIN_VALUE;
+		}
+		
+		for(int i = arr1.length - 1; i >= 0; i--)
+		{
+			for(int j = arr2.length - 1; j >= 0; j--)
+			{
+				int p = arr1[i] * arr2[j] + Math.max(prev[j + 1], 0);
+				int f = prev[j];
+				int s = cur[j + 1];
+				cur[j] =  Math.max(p, Math.max(f, s));
+			}
+            int[] t = prev;
+            prev = cur;
+            cur = t;
+
+		}
+		return prev[0];
+	}
+
+
+	
+	
 
 }
